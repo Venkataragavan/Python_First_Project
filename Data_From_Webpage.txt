@@ -1,0 +1,10 @@
+http://www.pythonforbeginners.com/basics/how-to-use-pip-and-pypi
+How to use Pip and PyPI
+http://www.pythonforbeginners.com/basics/python-quick-start-web
+Python - Quick Start Web
+http://www.pythonforbeginners.com/basics/string-manipulation-in-python
+String Manipulation in Python
+http://www.pythonforbeginners.com/basics/python-list-manipulation
+List Manipulation in Python
+http://www.pythonforbeginners.com/basics/list-comprehensions-in-python
+List Comprehensions in Python
