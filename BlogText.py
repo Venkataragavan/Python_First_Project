@@ -27,33 +27,25 @@ def get_data(urlstring,start,savepath):
         try:
             text=item.get_text()
             blog2.write(text+"/n")
+            #print("remove husk function done")
             break
         except:
             blog2.write("Error resulted while extracting from the link")
             pass
 
-    #for item in soup.findAll('section',{'class':'video_section'}):
-     #   print("Husk found")
-      #  husk=item.get_text()
-       # print("Husk is "+husk)
-        #with open('C:\\Users\\Venkataragavan C\\Documents\\PythTest\\Data_From_Cricket_Monthly\\CM'+str(start)+'.txt','r') as infile:
-         #   filedata=infile.read()
-          #  husklist=list
-           # husklist=husk.split(" ")
-            #print('HuskList is '+str(husklist))
-            #for item in husklist:
-             #   filedata=filedata.replace(item,'')
-        #with open('C:\\Users\\Venkataragavan C\\Documents\\PythTest\\Data_From_Cricket_Monthly\\CM'+str(start)+'.txt','w') as file:
-         #   file.write(filedata)
-            #print("Husk replaced")
 
-
-
-
-
-    #print("Exited from first string")
     print("File "+str(start)+" finished")
 
+
+
+def get_husk(URL,start):
+    URLdata=requests.get(URL).text
+    soupdata=BeautifulSoup(URLdata,'html.parser')
+    huskfile = open("C:\\Users\\Venkataragavan C\\PycharmProjects\\TCM\\Huskdata"+str(start)+".txt", 'w')
+    for item in soupdata.findAll('section',{'class':'image_large'}):
+        huskdata=item.get_text()
+        huskfile.writelines(huskdata)
+    print("Husk writing is done")
 
 
 
@@ -67,6 +59,7 @@ SAVEPATH=input("Enter the path where your files are to be saved (Default is the 
 for i in url.readlines():
     Url="http://thecricketmonthly.com"+str(i)
     get_data(Url,startfile,SAVEPATH)
+    get_husk(Url,startfile)
     startfile+=1
 
 
